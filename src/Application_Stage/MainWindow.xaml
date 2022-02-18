@@ -1,0 +1,216 @@
+﻿<Window x:Class="Application_Stage.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Application_Stage"
+        mc:Ignorable="d"
+        Title="Application ATV" Height="580" Width="1065" MinWidth="1065" MinHeight="580" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SizeToContent="WidthAndHeight" MaxHeight="580" MaxWidth="1065" WindowStartupLocation="CenterScreen" WindowState="Maximized" IsTabStop="True" ResizeMode="NoResize">
+    <TabControl x:Name="tabcontrolapp" HorizontalAlignment="Left" Height="520" Margin="10,10,0,0" VerticalAlignment="Top" Width="1030" RenderTransformOrigin="0.5,0.5" SelectionChanged="TabControl_SelectionChanged">
+        <TabItem x:Name="TB_client" Header="Client" Margin="-2,-2,-73,0">
+            <Grid Background="#FFE5E5E5">
+                <Label Content="Nom :" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
+                <Label Content="Prénom :" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top"/>
+                <Label Content="Adresse :" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtbox_client_nom" HorizontalAlignment="Left" Height="23" Margin="105,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" MaxLines="1" TextAlignment="Center" TabIndex="1" VerticalContentAlignment="Center" TextChanged="txtbox_client_nom_TextChanged" />
+                <TextBox x:Name="txtbox_client_prenom" HorizontalAlignment="Left" Height="23" Margin="105,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" MaxLines="1" TextAlignment="Center" TabIndex="2" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtbox_client_adresse_rue" HorizontalAlignment="Left" Height="23" Margin="105,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" ToolTip="Entrer la Rue" IsHitTestVisible="True" MaxLines="1" TextAlignment="Center" TabIndex="3" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtbox_client_adresse_ville" HorizontalAlignment="Left" Height="23" Margin="105,245,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" ToolTip="Entrer la Ville" MaxLines="1" TextAlignment="Center" TabIndex="4" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtbox_client_adresse_codepostal" HorizontalAlignment="Left" Height="23" Margin="105,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" ToolTip="Entrer le Code Postal" MaxLength="5" MaxLines="1" TextAlignment="Center" TabIndex="5" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtbox_client_tel_fix" HorizontalAlignment="Left" Height="23" Margin="105,380,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" MaxLength="10" MaxLines="1" TextAlignment="Center" TabIndex="6" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtbox_client_mail" HorizontalAlignment="Left" Height="23" Margin="105,330,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" MaxLines="1" TextAlignment="Center" TabIndex="7" VerticalContentAlignment="Center"/>
+                <Label Content="Téléphone Fix :" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top"/>
+                <Label Content="Mail :" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top"/>
+                <ListBox x:Name="lb_client" HorizontalAlignment="Left" Height="325" Margin="350,30,0,0" VerticalAlignment="Top" Width="645" SelectionChanged="lb_client_SelectionChanged"/>
+                <Button x:Name="btn_client_ajouter" Content="Ajouter" HorizontalAlignment="Left" Margin="150,450,0,0" VerticalAlignment="Top" Width="90" Click="btn_client_ajouter_Click" TabIndex="8"/>
+                <Button x:Name="btn_client_modif" Content="Modifier" HorizontalAlignment="Left" Margin="350,450,0,0" VerticalAlignment="Top" Width="100" IsEnabled="False" Click="btn_client_modif_Click" TabIndex="9"/>
+                <Button x:Name="btn_client_supprimer" Content="Supprimer" HorizontalAlignment="Left" Margin="765,450,0,0" VerticalAlignment="Top" Width="110" IsEnabled="False" Click="btn_client_supprimer_Click" TabIndex="11"/>
+                <Button x:Name="btn_client_selection" Content="Selectionner" HorizontalAlignment="Left" Margin="535,450,0,0" VerticalAlignment="Top" Width="120" Click="btn_client_selection_Click" TabIndex="10" IsEnabled="False"/>
+                <Label Content="- Rue :" HorizontalAlignment="Left" Margin="15,210,0,0" VerticalAlignment="Top"/>
+                <Label Content="- Ville :" HorizontalAlignment="Left" Margin="15,245,0,0" VerticalAlignment="Top"/>
+                <Label Content="- Code postal :" HorizontalAlignment="Left" Margin="15,280,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="rb_client_entreprise" Content="Entreprise" HorizontalAlignment="Left" Margin="65,80,0,0" VerticalAlignment="Top" Checked="rb_client_entreprise_Checked"/>
+                <RadioButton x:Name="rb_client_particulier" Content="Particulier" HorizontalAlignment="Left" Margin="190,80,0,0" VerticalAlignment="Top" Checked="rb_client_particulier_Checked"/>
+                <TextBox x:Name="txtbox_client_tel_portable" HorizontalAlignment="Left" Height="23" Margin="410,380,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" MaxLength="10" MaxLines="1" TextAlignment="Center" TabIndex="6" VerticalContentAlignment="Center"/>
+                <Label Content="Téléphone Portable :" HorizontalAlignment="Left" Margin="285,380,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </TabItem>
+        <TabItem x:Name="TB_chantier" Header="Chantier" Margin="73,-2,-148,0">
+            <Grid Background="#FFE5E5E5">
+                <Label Content="Nom Chantier :" HorizontalAlignment="Left" Margin="71,75,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtbox_chantier_nom" HorizontalAlignment="Left" Height="23" Margin="210,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" TabIndex="2" VerticalContentAlignment="Center"/>
+                <Label Content="Adresse :" HorizontalAlignment="Left" Margin="71,115,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtbox_chantier_rue" HorizontalAlignment="Left" Height="23" Margin="210,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" TabIndex="3" VerticalContentAlignment="Center" ToolTip="Entrer la Rue"/>
+                <Label Content="Client :" HorizontalAlignment="Left" Margin="71,35,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtbox_chantier_client" HorizontalAlignment="Left" Height="23" Margin="210,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" TabIndex="1" VerticalContentAlignment="Center" ToolTip="Entrer le nom du Client" TextChanged="txtbox_chantier_client_TextChanged"/>
+                <Button x:Name="btn_chantier_valide" Content="Selectionner" HorizontalAlignment="Left" Margin="550,425,0,0" VerticalAlignment="Top" Width="140" Click="btn_chantier_valide_Click" TabIndex="6" IsEnabled="False" />
+                <Button x:Name="btn_chantier_modif" Content="Modifier" HorizontalAlignment="Left" Margin="335,425,0,0" VerticalAlignment="Top" Width="140" TabIndex="7" Click="btn_chantier_modif_Click" IsEnabled="False"/>
+                <Button x:Name="btn_chantier_ajouter" Content="Ajouter" HorizontalAlignment="Left" Margin="165,425,0,0" VerticalAlignment="Top" Width="140" TabIndex="8" Click="btn_chantier_ajouter_Click"/>
+                <Button x:Name="btn_chantier_supprimer" Content="Supprimer" HorizontalAlignment="Left" Margin="720,425,0,0" VerticalAlignment="Top" Width="140" TabIndex="9" Click="btn_chantier_supprimer_Click" IsEnabled="False"/>
+                <TextBox x:Name="txtbox_chantier_ville" HorizontalAlignment="Left" Height="23" Margin="210,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" TabIndex="4" VerticalContentAlignment="Center" ToolTip="Entrer la Ville"/>
+                <TextBox x:Name="txtbox_chantier_CP" HorizontalAlignment="Left" Height="23" Margin="210,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" TabIndex="5" VerticalContentAlignment="Center" MaxLines="1" MaxLength="5" ToolTip="Entrer le Code Postal"/>
+                <Label Content="Date de réception :" HorizontalAlignment="Left" Margin="70,340,0,0" VerticalAlignment="Top"/>
+                <DatePicker x:Name="dtp_chantier_reception" HorizontalAlignment="Left" Margin="220,340,0,0" VerticalAlignment="Top" Width="175" SelectedDateFormat="Long"/>
+                <Label Content="Date de marché :" HorizontalAlignment="Left" Margin="70,265,0,0" VerticalAlignment="Top"/>
+                <DatePicker x:Name="dtp_chantier_marche" HorizontalAlignment="Left" Margin="220,265,0,0" VerticalAlignment="Top" Width="175" SelectedDateFormat="Long"/>
+                <ListBox x:Name="lb_chantier" HorizontalAlignment="Left" Height="340" Margin="505,25,0,0" VerticalAlignment="Top" Width="475" SelectionChanged="lb_chantier_SelectionChanged"/>
+                <Label Content="- Ville :" HorizontalAlignment="Left" Margin="120,175,0,0" VerticalAlignment="Top"/>
+                <Label Content="- Code Postal :" HorizontalAlignment="Left" Margin="120,210,0,0" VerticalAlignment="Top"/>
+                <Label Content="- Rue :" HorizontalAlignment="Left" Margin="120,140,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </TabItem>
+        <TabItem x:Name="TB_produit" Header="Produit" Margin="573,-2,-648,0" Loaded="TB_produit_Loaded">
+            <Grid Background="#FFE5E5E5">
+                <Grid HorizontalAlignment="Left" Height="472" Margin="10,10,0,0" VerticalAlignment="Top" Width="485" Background="#FFDBD6D6" >
+                    <Label Content="Nom :" HorizontalAlignment="Left" Margin="5,55,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Caractéristique :" HorizontalAlignment="Left" Margin="5,95,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Type :" HorizontalAlignment="Left" Margin="5,135,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Système :" HorizontalAlignment="Left" Margin="5,175,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Support :" HorizontalAlignment="Left" Margin="15,255,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Fournisseur :" HorizontalAlignment="Left" Margin="255,135,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Fabricant :" HorizontalAlignment="Left" Margin="255,175,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Consomation :" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="90"/>
+                    <Label Content="Épaisseur :" HorizontalAlignment="Left" Margin="255,95,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Prix Unitaire :" HorizontalAlignment="Left" Margin="255,215,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtbox_produit_nom" HorizontalAlignment="Left" Height="23" Margin="100,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" TextChanged="txtbox_produit_nom_TextChanged"/>
+                    <ComboBox x:Name="cb_produit_caracteristique" HorizontalAlignment="Left" Margin="100,95,0,0" VerticalAlignment="Top" Width="145"/>
+                    <TextBox x:Name="txtbox_produit_type" HorizontalAlignment="Left" Height="23" Margin="100,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+                    <TextBox x:Name="txtbox_produit_systeme" HorizontalAlignment="Left" Height="23" Margin="100,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+                    <TextBox x:Name="txtbox_produit_support" HorizontalAlignment="Left" Height="23" Margin="100,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+                    <TextBox x:Name="txtbox_produit_fournisseur" HorizontalAlignment="Left" Height="23" Margin="345,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
+                    <TextBox x:Name="txtbox_produit_fabricant" HorizontalAlignment="Left" Height="23" Margin="345,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
+                    <TextBox x:Name="txtbox_produit_consomation" HorizontalAlignment="Left" Height="23" Margin="100,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+                    <TextBox x:Name="txtbox_produit_prix" HorizontalAlignment="Left" Height="23" Margin="345,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" MaxLength="5"/>
+                    <ComboBox x:Name="cb_produit_epaisseur" HorizontalAlignment="Left" Margin="345,95,0,0" VerticalAlignment="Top" Width="130"/>
+                    <Label Content="Grain :" HorizontalAlignment="Left" Margin="255,55,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="cb_produit_grain" HorizontalAlignment="Left" Margin="345,55,0,0" VerticalAlignment="Top" Width="130"/>
+                    <Button x:Name="btn_produit_ajouter" Content="Ajouter" HorizontalAlignment="Left" Margin="40,435,0,0" VerticalAlignment="Top" Width="90" Click="btn_produit_ajouter_Click"/>
+                    <Button x:Name="btn_produit_modifier" Content="Modifier" HorizontalAlignment="Left" Margin="175,435,0,0" VerticalAlignment="Top" Width="90" Click="btn_produit_modifier_Click"/>
+                    <Button x:Name="btn_produit_supprimer" Content="Supprimer" HorizontalAlignment="Left" Margin="310,435,0,0" VerticalAlignment="Top" Width="90" Click="btn_produit_supprimer_Click"/>
+                    <Label Content="Format :" HorizontalAlignment="Left" Margin="255,255,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtbox_produit_format" HorizontalAlignment="Left" Height="23" Margin="345,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
+                    <Label Content="Produit :" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" FontSize="20"/>
+                    <ListBox x:Name="LB_produit_produit" HorizontalAlignment="Left" Height="130" Margin="10,290,0,0" VerticalAlignment="Top" Width="465" SelectionChanged="LB_produit_nuancier_SelectionChanged"/>
+                </Grid>
+                <Grid Background="#FFDBD6D6" HorizontalAlignment="Left" Height="472" Margin="510,10,0,0" VerticalAlignment="Top" Width="505">
+                    <Label Content="Réf :" HorizontalAlignment="Left" Margin="200,70,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtbox_produit_ref" HorizontalAlignment="Left" Height="23" Margin="235,70,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="70" IsReadOnly="False" MaxLength="3" TabIndex="2" VerticalContentAlignment="Center" />
+                    <Label Content="Couleur :" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+                    <ListBox x:Name="LB_produit_nuancier" HorizontalAlignment="Left" Height="270" Margin="15,103,0,0" VerticalAlignment="Top" Width="480" SelectionChanged="LB_produit_nuancier_SelectionChanged"/>
+                    <TextBox x:Name="txtbox_produit_couleur" HorizontalAlignment="Left" Height="23" Margin="70,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" TextChanged="txtbox_produit_couleur_TextChanged" TabIndex="1"/>
+                    <Label Content="Coefficient :" HorizontalAlignment="Left" Margin="209,392,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Gamme :" HorizontalAlignment="Left" Margin="10,390,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtbox_produit_gamme" HorizontalAlignment="Left" Height="23" Margin="83,390,0,0" IsReadOnly="False" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="3"/>
+                    <Button x:Name="btn_produit_ajouter_nuance" Content="Ajouter" HorizontalAlignment="Left" Margin="60,435,0,0" VerticalAlignment="Top" Width="110" TabIndex="7" Click="btn_produit_ajouter_nuance_Click"/>
+                    <Button x:Name="btn_produit_modif_nuancier" Content="Modifier" HorizontalAlignment="Left" Margin="190,435,0,0" VerticalAlignment="Top" Width="110" TabIndex="8" Click="btn_produit_modif_nuancier_Click"/>
+                    <Button x:Name="btn_produit_suppr_nuancier" Content="Supprimer" HorizontalAlignment="Left" Margin="315,435,0,0" VerticalAlignment="Top" Width="110" TabIndex="9" Click="btn_produit_suppr_nuancier_Click"/>
+                    <RadioButton x:Name="rb_produit_coef1" Content="&lt;0,7" HorizontalAlignment="Left" Margin="286,398,0,0" VerticalAlignment="Top" Checked="rb_produit_coef1_Checked" TabIndex="4"/>
+                    <RadioButton x:Name="rb_produit_coef2" Content="&gt;=0,7" HorizontalAlignment="Left" Margin="338,398,0,0" VerticalAlignment="Top" Checked="rb_produit_coef2_Checked" TabIndex="5"/>
+                    <RadioButton x:Name="rb_produit_coef3" Content="&gt;0,7" HorizontalAlignment="Left" Margin="405,398,0,0" VerticalAlignment="Top" Checked="rb_produit_coef3_Checked" TabIndex="6"/>
+                    <Label Content="Nuance :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20"/>
+                    <Label Content="Plus-value :" HorizontalAlignment="Left" Margin="315,70,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtbox_produit_plus_value" HorizontalAlignment="Left" Height="23" Margin="390,70,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="80" IsReadOnly="False" MaxLength="3" TabIndex="2" VerticalContentAlignment="Center" />
+                </Grid>
+            </Grid>
+        </TabItem>
+        <TabItem x:Name="TB_fournisseur" Header="Fournisseur de matériaux" Margin="73,-2,-78,0">
+            <Grid Background="#FFE5E5E5">
+                <Label Content="Nom :" HorizontalAlignment="Left" Margin="80,25,0,0" VerticalAlignment="Top"/>
+                <Label Content="Adresse :" HorizontalAlignment="Left" Margin="430,25,0,0" VerticalAlignment="Top"/>
+                <Label Content="Téléphone :" HorizontalAlignment="Left" Margin="80,125,0,0" VerticalAlignment="Top"/>
+                <Label Content="Mail :" HorizontalAlignment="Left" Margin="80,80,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="btn_fournisseur_ajoute" Content="Ajouter" HorizontalAlignment="Left" Margin="800,55,0,0" VerticalAlignment="Top" Width="100" TabIndex="8" Click="btn_fournisseur_ajoute_Click"/>
+                <Button x:Name="btn_fournisseur_modif" Content="Modifier" HorizontalAlignment="Left" Margin="800,110,0,0" VerticalAlignment="Top" Width="100" IsEnabled="False" TabIndex="9" Click="btn_fournisseur_modif_Click"/>
+                <Button x:Name="btn_fournisseur_selectionne" Content="Sélectionner" HorizontalAlignment="Left" Margin="800,165,0,0" VerticalAlignment="Top" Width="100" Click="btn_fournisseur_selectionne_Click" TabIndex="10" IsEnabled="False"/>
+                <ListBox x:Name="lb_fournisseur" HorizontalAlignment="Left" Height="240" Margin="25,225,0,0" VerticalAlignment="Top" Width="975" SelectionChanged="lb_fournisseur_SelectionChanged"/>
+                <TextBox x:Name="txtbox_fournisseur_nom" HorizontalAlignment="Left" Height="23" Margin="165,25,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" MaxLines="1" TextAlignment="Center" TabIndex="1" VerticalContentAlignment="Center" TextChanged="txtbox_fournisseur_nom_TextChanged"/>
+                <TextBox x:Name="txtbox_fournisseur_rue" HorizontalAlignment="Left" Height="23" Margin="525,50,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" MaxLines="1" ToolTip="Saissir la Rue" TextAlignment="Center" TabIndex="4" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtbox_fournisseur_mail" HorizontalAlignment="Left" Height="23" Margin="165,75,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" MaxLines="1" TextAlignment="Center" TabIndex="2" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtbox_fournisseur_tel" HorizontalAlignment="Left" Height="23" Margin="165,125,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" MaxLines="1" MaxLength="10" TextAlignment="Center" TabIndex="3" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtbox_fournisseur_ville" HorizontalAlignment="Left" Height="23" Margin="525,88,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" MaxLines="1" ToolTip="Saissir la Ville" TextAlignment="Center" TabIndex="6" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtbox_fournisseur_CP" HorizontalAlignment="Left" Height="23" Margin="525,126,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" MaxLines="1" ToolTip="Saissir le Code Postal" TextAlignment="Center" TabIndex="7" VerticalContentAlignment="Center"/>
+                <Label Content="Site Web :" HorizontalAlignment="Left" Margin="430,170,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtbox_fournisseur_site" HorizontalAlignment="Left" Height="23" Margin="525,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+                <Label Content="- Rue :" HorizontalAlignment="Left" Margin="440,50,0,0" VerticalAlignment="Top"/>
+                <Label Content="- Ville :" HorizontalAlignment="Left" Margin="440,88,0,0" VerticalAlignment="Top"/>
+                <Label Content="- Code Postal :" HorizontalAlignment="Left" Margin="440,126,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </TabItem>
+        <TabItem x:Name="TB_commande" Header="Commande" Margin="78,-2,-153,0">
+            <Grid Background="#FFE5E5E5">
+
+                <Button x:Name="btn_commande_enregistrer" Content="Finaliser la Commande" HorizontalAlignment="Left" Margin="575,460,0,0" VerticalAlignment="Top" Width="145" Click="btn_commande_enregistrer_Click"/>
+                <Button x:Name="btn_commande_supprimer" Content="Supprimer la Commande" HorizontalAlignment="Left" Margin="810,460,0,0" VerticalAlignment="Top" Width="145"/>
+                <Grid HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="475" Background="#FFDBD6D6" Margin="10,8,0,0">
+                    <TextBox x:Name="txtbox_commande_num_cmd" HorizontalAlignment="Left" Height="23" Margin="170,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" TextChanged="txtbox_commande_num_cmd_TextChanged"/>
+                    <Label Content="Numéro de Commande :" HorizontalAlignment="Left" Margin="15,8,0,0" VerticalAlignment="Top"/>
+                    <ListBox x:Name="lb_commande_commande" HorizontalAlignment="Left" Height="70" Margin="10,38,0,0" VerticalAlignment="Top" Width="450"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="208" Margin="10,131,0,0" VerticalAlignment="Top" Width="475" Background="#FFDBD6D6">
+                    <ListBox x:Name="lb_commande_produit" HorizontalAlignment="Left" Height="158" Margin="10,40,0,0" VerticalAlignment="Top" Width="450" SelectionChanged="lb_commande_produit_SelectionChanged"/>
+                    <TextBox x:Name="txtbox_commande_produit" HorizontalAlignment="Left" Height="23" Margin="235,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" TextChanged="txtbox_commande_produit_TextChanged"/>
+                    <Label Content="Rechercher produit (par fabricant) :" HorizontalAlignment="Left" Margin="15,9,-32,0" VerticalAlignment="Top"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="141" VerticalAlignment="Top" Width="475" Background="#FFDBD6D6" Margin="10,344,0,0">
+                    <TextBox x:Name="txtbox_commande_teinte" HorizontalAlignment="Left" Height="23" Margin="95,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" TextChanged="txtbox_commande_teinte_TextChanged"/>
+                    <Label Content="Teinte :" HorizontalAlignment="Left" Margin="15,8,0,0" VerticalAlignment="Top"/>
+                    <ListBox x:Name="lb_commande_nuance" HorizontalAlignment="Left" Height="93" Margin="10,38,0,0" VerticalAlignment="Top" Width="455"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="145" Margin="490,10,0,0" VerticalAlignment="Top" Width="524" Background="#FFDBD6D6">
+                    <Label Content="Finaliser le Produit :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Quantité :" HorizontalAlignment="Left" Margin="60,40,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtbox_commande_quantite" HorizontalAlignment="Left" Height="23" Margin="127,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" MaxLength="3" MaxLines="1" TextChanged="txtbox_commande_quantite_TextChanged" />
+                    <Label Content="Prix unitaire (HT) :" HorizontalAlignment="Left" Margin="18,75,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtbox_commande_prix_unitaire" HorizontalAlignment="Left" Height="23" Margin="127,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" MaxLength="3" MaxLines="1" IsReadOnly="True"/>
+                    <Label Content="€" HorizontalAlignment="Left" Margin="212,75,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Prix Total (HT) :" HorizontalAlignment="Left" Margin="271,75,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtbox_commande_prix_total" HorizontalAlignment="Left" Height="23" Margin="380,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" MaxLength="3" MaxLines="1" IsReadOnly="True"/>
+                    <Label Content="€" HorizontalAlignment="Left" Margin="465,75,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="btn_commande_ajouter_prod" Content="Ajouter à la commande" HorizontalAlignment="Left" Margin="200,114,0,0" VerticalAlignment="Top" Width="145" Click="btn_commande_ajouter_prod_Click"/>
+                    <Label x:Name="label_unite" HorizontalAlignment="Left" Margin="212,40,0,0" VerticalAlignment="Top"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="290" Margin="490,160,0,0" VerticalAlignment="Top" Width="524" Background="#FFDBD6D6">
+                    <Label Content="Date de livraison souhaitée :" HorizontalAlignment="Left" Margin="70,245,0,0" VerticalAlignment="Top" Width="160"/>
+                    <DatePicker x:Name="dtp_livraison" HorizontalAlignment="Left" Margin="240,245,0,0" VerticalAlignment="Top" Width="225" Loaded="dtp_livraison_Loaded"/>
+                    <Label Content="Commande :" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Client :" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Chantier :" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Adresse :" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Fournisseur :" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtbox_commande_client" HorizontalAlignment="Left" Height="23" Margin="95,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" IsReadOnly="True"/>
+                    <TextBox x:Name="txtbox_commande_chantier" HorizontalAlignment="Left" Height="23" Margin="95,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" IsReadOnly="True"/>
+                    <TextBox x:Name="txtbox_commande_chantier_rue" HorizontalAlignment="Left" Height="23" Margin="95,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" IsReadOnly="True"/>
+                    <TextBox x:Name="txtbox_commande_chantier_ville" HorizontalAlignment="Left" Height="23" Margin="95,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" IsReadOnly="True"/>
+                    <TextBox x:Name="txtbox_commande_fournisseur" HorizontalAlignment="Left" Height="23" Margin="95,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" IsReadOnly="True"/>
+                    <ListBox x:Name="lb_commande_produit_final" HorizontalAlignment="Left" Height="185" Margin="244,15,0,0" VerticalAlignment="Top" Width="270"/>
+                    <Label Content="Total :" HorizontalAlignment="Left" Margin="355,200,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtbox_commande_prix_total_produit" HorizontalAlignment="Left" Height="23" Margin="424,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" IsReadOnly="True"/>
+                    <Label Content="- Rue :" HorizontalAlignment="Left" Margin="25,145,0,0" VerticalAlignment="Top"/>
+                    <Label Content="- Ville :" HorizontalAlignment="Left" Margin="25,180,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </Grid>
+        </TabItem>
+        <TabItem x:Name="TB_setting" Header="Parametre" Margin="428,-2,-503,0">
+            <Grid Background="#FFE5E5E5">
+                <ListBox HorizontalAlignment="Left" Height="100" Margin="10,262,0,0" VerticalAlignment="Top" Width="904"/>
+                <Label Content="Utilisateur" HorizontalAlignment="Left" Margin="136,129,0,0" VerticalAlignment="Top"/>
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Utilisateur :" HorizontalAlignment="Left" Margin="150,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.531,1.692"/>
+                    <Label Content="Mot de passe :" HorizontalAlignment="Left" Margin="150,195,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.531,1.692"/>
+                    <Label Content="Base de données :" HorizontalAlignment="Left" Margin="150,250,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.531,1.692"/>
+                    <TextBox x:Name="txtbox_bdd" HorizontalAlignment="Left" Height="23" Margin="275,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" MaxLines="1" TextAlignment="Center" TabIndex="3" VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="txtbox_user" HorizontalAlignment="Left" Height="23" Margin="275,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" MaxLines="1" TextAlignment="Center" TabIndex="1" VerticalContentAlignment="Center"/>
+                    <Label Content="Serveur :" HorizontalAlignment="Left" Margin="580,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.531,1.692"/>
+                    <Label Content="Port :" HorizontalAlignment="Left" Margin="581,195,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.531,1.692"/>
+                    <TextBox x:Name="txtbox_port" HorizontalAlignment="Left" Height="23" Margin="710,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" MaxLines="1" TextAlignment="Center" TabIndex="5" VerticalContentAlignment="Center" MaxLength="7" IsReadOnly="True" />
+                    <TextBox x:Name="txtbox_server" HorizontalAlignment="Left" Height="23" Margin="710,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" MaxLines="1" TextAlignment="Center" TabIndex="4" VerticalContentAlignment="Center"/>
+                    <Button x:Name="btn_modif_setting" Content="Valider les changements" HorizontalAlignment="Left" Margin="685,253,0,0" VerticalAlignment="Top" Width="145" Click="btn_modif_setting_Click" TabIndex="6"/>
+                    <PasswordBox x:Name="pswbox_psw" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="23" Margin="275,195,0,0" VerticalAlignment="Top" Width="120" TabIndex="2" VerticalContentAlignment="Center"/>
+                    <Label Content="Chemin d'acces Fichier :" HorizontalAlignment="Left" Margin="150,330,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtbox_chemin" HorizontalAlignment="Left" Height="23" Margin="337,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280"/>
+                    <Button x:Name="btn_chemin" Content="Modifier Chemin" HorizontalAlignment="Left" Margin="685,330,0,0" VerticalAlignment="Top" Width="145" TabIndex="6" Click="btn_chemin_Click"/>
+                </Grid>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

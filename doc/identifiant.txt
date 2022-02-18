@@ -1,0 +1,12 @@
+phpmyadmin
+
+utilisateur : atv
+mdp : semsi
+
+VNC
+pi
+pi
+
+
+
+server="+Properties.Settings.Default.server + ";user id="+Properties.Settings.Default.user+";password="Properties.Settings.Default.password+";port="+Properties.Settings.Default.port";database="Properties.Settings.Default.bdd;
